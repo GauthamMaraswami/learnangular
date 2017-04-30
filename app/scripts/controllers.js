@@ -58,13 +58,17 @@ $scope.tab = 1;
                 }
             };
         }])
-           .controller('DishDetailController', ['$scope','$routeParams','menuFactory', function($scope,$routeParams, menuFactory) {
 
-        
-          var dish= menuFactory.getDish(parseInt($routeParams.id,10));      
-                            $scope.dish = dish;      
-                            
-        }])
+
+
+
+        .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
+            var dish= menuFactory.getDish(parseInt($stateParams.id,10));
+                        $scope.dish = dish;
+                    }])
+
+
+
         
         .controller('DishCommentController', ['$scope', function ($scope) {
 
@@ -91,4 +95,26 @@ $scope.tab = 1;
       date: ""
     };
   };
-}]);
+}])
+
+.controller('IndexController', 
+  [ '$scope', 'menuFactory', 'corporateFactory', 
+    function ($scope, menuFactory, corporateFactory) {
+
+      $scope.featured = menuFactory.getDish(0);     
+      $scope.promotion = menuFactory.getPromotion(0);
+      $scope.specialist = corporateFactory.getLeader(3);   
+    }
+  ])
+
+.controller('AboutController', 
+  [ '$scope', 'corporateFactory', 
+    function ($scope, corporateFactory) {
+
+      $scope.leaders = corporateFactory.getLeaders();   
+    }
+  ]
+);
+
+
+
