@@ -9,3 +9,13 @@ GULP is used for real time evaluation and correcting and also for debugging erro
 Form validation is also done using angular
 Angular Factory, Services And Dependency injections are also been done to serve data .
 client server communication is being implemented to gain access to the database from the controlers
+
+
+
+
+To use the product 
+step 1:Download the product by cloning or download and extract
+step 2:run setup.sh /run the commands in the file setup.sh inside the conFusion folder
+step3: goto test folder and run the command :   json-server --watch db.json
+step 4:goto link http://localhost:3000/#!/
+the website will be riunning
